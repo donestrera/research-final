@@ -6,7 +6,7 @@ import time
 from django.conf import settings
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
-from .models import SensorData, Alert
+from .models import SensorData
 
 logger = logging.getLogger(__name__)
 
@@ -77,7 +77,7 @@ class ArduinoHandler:
             
             # Create sensor reading
             reading = SensorData.objects.create(
-                sensor_id=1,  # Default sensor ID
+                sensor_id=1,
                 temperature=sensor_data.get('temperature'),
                 humidity=sensor_data.get('humidity'),
                 motion_detected=sensor_data.get('motionDetected'),
@@ -85,109 +85,22 @@ class ArduinoHandler:
             )
 
             # Broadcast to WebSocket
-            self._broadcast_update(sensor_data, reading.timestamp.isoformat())
-
-            # Check for alerts
-            self._check_alerts(reading)
-
-        except json.JSONDecodeError:
-            logger.error(f"Invalid JSON data received: {data}")
-        except Exception as e:
-            logger.error(f"Error processing Arduino data: {str(e)}")
-
-    def _broadcast_update(self, data, timestamp):
-        """Broadcast sensor updates through WebSocket"""
-        try:
             async_to_sync(self.channel_layer.group_send)(
                 "sensor_updates",
                 {
                     "type": "sensor_update",
                     "message": {
                         "sensor_id": 1,
-                        "data": data,
-                        "timestamp": timestamp
+                        "data": sensor_data,
+                        "timestamp": reading.timestamp.isoformat()
                     }
                 }
             )
-        except Exception as e:
-            logger.error(f"Error broadcasting update: {str(e)}")
 
-    def _check_alerts(self, reading):
-        """Check sensor readings for alert conditions"""
-        alerts = []
-        
-        # Temperature alerts
-        if reading.temperature is not None:
-            if reading.temperature > 30:
-                alerts.append({
-                    'alert_type': 'TEMP_HIGH',
-                    'message': f'High temperature detected: {reading.temperature}°C',
-                    'severity': 'HIGH'
-                })
-            elif reading.temperature < 15:
-                alerts.append({
-                    'alert_type': 'TEMP_LOW',
-                    'message': f'Low temperature detected: {reading.temperature}°C',
-                    'severity': 'MEDIUM'
-                })
-        
-        # Humidity alerts
-        if reading.humidity is not None:
-            if reading.humidity > 70:
-                alerts.append({
-                    'alert_type': 'HUM_HIGH',
-                    'message': f'High humidity detected: {reading.humidity}%',
-                    'severity': 'MEDIUM'
-                })
-            elif reading.humidity < 30:
-                alerts.append({
-                    'alert_type': 'HUM_LOW',
-                    'message': f'Low humidity detected: {reading.humidity}%',
-                    'severity': 'MEDIUM'
-                })
-        
-        # Motion alert
-        if reading.motion_detected:
-            alerts.append({
-                'alert_type': 'MOTION',
-                'message': 'Motion detected!',
-                'severity': 'LOW'
-            })
-        
-        # Smoke alert
-        if reading.smoke_detected:
-            alerts.append({
-                'alert_type': 'SMOKE',
-                'message': 'Smoke detected! Possible fire hazard!',
-                'severity': 'CRITICAL'
-            })
-        
-        # Create alerts
-        for alert_data in alerts:
-            try:
-                alert = Alert.objects.create(
-                    sensor_id=reading.sensor_id,
-                    **alert_data
-                )
-                self._broadcast_alert(alert)
-            except Exception as e:
-                logger.error(f"Error creating alert: {str(e)}")
-
-    def _broadcast_alert(self, alert):
-        """Broadcast alert through Redis"""
-        try:
-            from django_redis import get_redis_connection
-            redis_conn = get_redis_connection("default")
-            
-            redis_conn.publish('alerts', json.dumps({
-                "sensor_id": alert.sensor_id,
-                "alert_type": alert.alert_type,
-                "message": alert.message,
-                "severity": alert.severity,
-                "timestamp": alert.timestamp.isoformat()
-            }))
+        except json.JSONDecodeError:
+            logger.error(f"Invalid JSON data received: {data}")
         except Exception as e:
-            logger.error(f"Error broadcasting alert: {str(e)}")
+            logger.error(f"Error processing Arduino data: {str(e)}")
 
 # Global Arduino handler instance
 arduino_handler = None
