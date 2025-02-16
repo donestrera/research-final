@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arduino Sensor Dashboard</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Arduino Sensor Dashboard</h1>
-            <p class="connection-status">Connection Status: <span id="connection-status">Connecting...</span></p>
+            <p id="connection-status">Status: <span class="disconnected">Disconnected</span></p>
         </header>
 
         <div class="dashboard-grid">
@@ -20,15 +21,13 @@
                 <div class="sensor-cards">
                     <div class="sensor-card">
                         <h3>Temperature</h3>
-                        <div class="sensor-value" id="temperature">--</div>
+                        <div id="temperature-value" class="sensor-value">--</div>
                         <div class="sensor-unit">°C</div>
-                        <canvas id="temperature-chart"></canvas>
                     </div>
                     <div class="sensor-card">
                         <h3>Humidity</h3>
-                        <div class="sensor-value" id="humidity">--</div>
+                        <div id="humidity-value" class="sensor-value">--</div>
                         <div class="sensor-unit">%</div>
-                        <canvas id="humidity-chart"></canvas>
                     </div>
                 </div>
             </section>
@@ -41,14 +40,14 @@
                         <h3>Motion Sensor</h3>
                         <div class="sensor-indicator">
                             <div class="indicator-light"></div>
-                            <div class="sensor-status" id="motion-status">No Motion</div>
+                            <div class="sensor-status">No Motion</div>
                         </div>
                     </div>
                     <div class="sensor-card" id="smoke-card">
                         <h3>Smoke Detector</h3>
                         <div class="sensor-indicator">
                             <div class="indicator-light"></div>
-                            <div class="sensor-status" id="smoke-status">No Smoke</div>
+                            <div class="sensor-status">No Smoke</div>
                         </div>
                     </div>
                 </div>
@@ -69,7 +68,7 @@
                             <th>Smoke</th>
                         </tr>
                     </thead>
-                    <tbody id="readings-body">
+                    <tbody>
                         <!-- Readings will be inserted here -->
                     </tbody>
                 </table>
@@ -77,6 +76,7 @@
         </section>
     </div>
 
-    <script src="/static/js/dashboard.js"></script>
+    {% load static %}
+    <script src="{% static 'js/dashboard.js' %}"></script>
 </body>
 </html> 
