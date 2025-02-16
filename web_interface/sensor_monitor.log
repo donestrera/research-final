@@ -1,3 +1,24 @@
 INFO 2025-02-16 00:57:42,988 autoreload 82050 4374431104 Watching for file changes with StatReloader
 INFO 2025-02-16 00:59:09,106 basehttp 82050 6129856512 "GET / HTTP/1.1" 200 10664
 INFO 2025-02-16 01:03:59,506 autoreload 82050 4374431104 /Users/langlang/Desktop/research-final/arduino_sensor_project/web_interface/web_interface/settings.py changed, reloading.
+INFO 2025-02-16 01:44:11,500 autoreload 82964 4300457344 Watching for file changes with StatReloader
+INFO 2025-02-16 01:44:26,394 basehttp 82964 6200832000 "GET / HTTP/1.1" 200 10664
+INFO 2025-02-16 01:45:30,111 autoreload 82964 4300457344 /Users/langlang/Desktop/research-final/arduino_sensor_project/web_interface/web_interface/urls.py changed, reloading.
+INFO 2025-02-16 01:45:30,448 autoreload 82996 4365911424 Watching for file changes with StatReloader
+INFO 2025-02-16 01:45:41,682 autoreload 82996 4365911424 /Users/langlang/Desktop/research-final/arduino_sensor_project/web_interface/web_interface/settings.py changed, reloading.
+INFO 2025-02-16 01:45:41,983 autoreload 83005 4334093696 Watching for file changes with StatReloader
+INFO 2025-02-16 01:45:43,079 autoreload 83005 4334093696 /Users/langlang/Desktop/research-final/arduino_sensor_project/web_interface/web_interface/settings.py changed, reloading.
+INFO 2025-02-16 01:45:43,286 autoreload 83007 4307879296 Watching for file changes with StatReloader
+INFO 2025-02-16 01:46:06,759 autoreload 83041 4297164160 Watching for file changes with StatReloader
+INFO 2025-02-16 01:47:21,202 autoreload 83116 4309140864 Watching for file changes with StatReloader
+INFO 2025-02-16 01:47:41,594 basehttp 83116 6193049600 "GET / HTTP/1.1" 200 2972
+INFO 2025-02-16 01:47:41,614 basehttp 83116 6193049600 "GET /static/css/styles.css HTTP/1.1" 200 3130
+INFO 2025-02-16 01:47:41,615 basehttp 83116 6209875968 "GET /static/js/dashboard.js HTTP/1.1" 200 4111
+WARNING 2025-02-16 01:47:41,680 log 83116 6226702336 Not Found: /ws/sensors/
+WARNING 2025-02-16 01:47:41,681 basehttp 83116 6226702336 "GET /ws/sensors/ HTTP/1.1" 404 2409
+WARNING 2025-02-16 01:47:46,751 log 83116 6226702336 Not Found: /ws/sensors/
+WARNING 2025-02-16 01:47:46,751 basehttp 83116 6226702336 "GET /ws/sensors/ HTTP/1.1" 404 2409
+WARNING 2025-02-16 01:47:51,857 log 83116 6226702336 Not Found: /ws/sensors/
+WARNING 2025-02-16 01:47:51,861 basehttp 83116 6226702336 "GET /ws/sensors/ HTTP/1.1" 404 2409
+WARNING 2025-02-16 01:47:56,947 log 83116 6226702336 Not Found: /ws/sensors/
+WARNING 2025-02-16 01:47:56,947 basehttp 83116 6226702336 "GET /ws/sensors/ HTTP/1.1" 404 2409

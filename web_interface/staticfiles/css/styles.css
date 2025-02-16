@@ -1,0 +1,197 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f7fa;
+    color: #2d3748;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.connection-status {
+    color: #718096;
+}
+
+.connection-status span {
+    font-weight: 600;
+}
+
+.connection-status span.connected {
+    color: #48bb78;
+}
+
+.connection-status span.disconnected {
+    color: #f56565;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Sensor Sections */
+.sensor-section {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sensor-section h2 {
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.sensor-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* Sensor Cards */
+.sensor-card {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.sensor-card h3 {
+    color: #4a5568;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.sensor-value {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.sensor-unit {
+    color: #718096;
+    font-size: 1rem;
+}
+
+/* Charts */
+canvas {
+    width: 100%;
+    height: 150px;
+    margin-top: 1rem;
+}
+
+/* Indicator Lights */
+.sensor-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.indicator-light {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #cbd5e0;
+    transition: all 0.3s ease;
+}
+
+.sensor-status {
+    font-size: 1.1rem;
+    color: #4a5568;
+}
+
+/* Active States */
+#motion-card.active .indicator-light {
+    background-color: #f6e05e;
+    box-shadow: 0 0 15px rgba(246, 224, 94, 0.5);
+}
+
+#smoke-card.active .indicator-light {
+    background-color: #f56565;
+    box-shadow: 0 0 15px rgba(245, 101, 101, 0.5);
+}
+
+/* Readings Table */
+.readings-section {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.readings-table {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background-color: #f8fafc;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+td {
+    color: #2d3748;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .sensor-value {
+        font-size: 2rem;
+    }
+
+    .readings-table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 0.75rem;
+    }
+} 
