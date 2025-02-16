@@ -22,3 +22,24 @@ WARNING 2025-02-16 01:47:51,857 log 83116 6226702336 Not Found: /ws/sensors/
 WARNING 2025-02-16 01:47:51,861 basehttp 83116 6226702336 "GET /ws/sensors/ HTTP/1.1" 404 2409
 WARNING 2025-02-16 01:47:56,947 log 83116 6226702336 Not Found: /ws/sensors/
 WARNING 2025-02-16 01:47:56,947 basehttp 83116 6226702336 "GET /ws/sensors/ HTTP/1.1" 404 2409
+INFO 2025-02-16 02:22:00,452 autoreload 83598 4303717760 Watching for file changes with StatReloader
+INFO 2025-02-16 02:22:03,310 basehttp 83598 6198538240 "GET / HTTP/1.1" 200 4000
+INFO 2025-02-16 02:22:08,468 basehttp 83598 6198538240 "GET /static/css/styles.css HTTP/1.1" 200 4043
+INFO 2025-02-16 02:22:08,469 basehttp 83598 6215364608 "GET /static/js/dashboard.js HTTP/1.1" 200 8499
+INFO 2025-02-16 02:23:30,336 autoreload 83598 4303717760 /Users/langlang/Desktop/research-final/arduino_sensor_project/web_interface/sensor_monitor/urls.py changed, reloading.
+INFO 2025-02-16 02:23:30,669 autoreload 83622 4346889600 Watching for file changes with StatReloader
+INFO 2025-02-16 02:23:35,825 autoreload 83622 4346889600 /Users/langlang/Desktop/research-final/arduino_sensor_project/web_interface/sensor_monitor/views.py changed, reloading.
+INFO 2025-02-16 02:23:36,051 autoreload 83624 4366288256 Watching for file changes with StatReloader
+INFO 2025-02-16 02:23:42,200 autoreload 83624 4366288256 /Users/langlang/Desktop/research-final/arduino_sensor_project/web_interface/sensor_monitor/views.py changed, reloading.
+INFO 2025-02-16 02:23:42,531 autoreload 83631 4343154048 Watching for file changes with StatReloader
+INFO 2025-02-16 02:23:43,638 autoreload 83631 4343154048 /Users/langlang/Desktop/research-final/arduino_sensor_project/web_interface/sensor_monitor/views.py changed, reloading.
+INFO 2025-02-16 02:23:43,838 autoreload 83632 4336682368 Watching for file changes with StatReloader
+INFO 2025-02-16 02:23:44,947 autoreload 83632 4336682368 /Users/langlang/Desktop/research-final/arduino_sensor_project/web_interface/sensor_monitor/urls.py changed, reloading.
+INFO 2025-02-16 02:23:45,366 autoreload 83633 4366484864 Watching for file changes with StatReloader
+INFO 2025-02-16 02:23:48,630 autoreload 83633 4366484864 /Users/langlang/Desktop/research-final/arduino_sensor_project/web_interface/sensor_monitor/urls.py changed, reloading.
+INFO 2025-02-16 02:23:48,839 autoreload 83635 4379018624 Watching for file changes with StatReloader
+INFO 2025-02-16 02:23:51,946 autoreload 83635 4379018624 /Users/langlang/Desktop/research-final/arduino_sensor_project/web_interface/sensor_monitor/urls.py changed, reloading.
+INFO 2025-02-16 02:23:52,147 autoreload 83641 4314875264 Watching for file changes with StatReloader
+INFO 2025-02-16 02:25:26,935 basehttp 83641 6188838912 "GET / HTTP/1.1" 200 5134
+INFO 2025-02-16 02:25:26,962 basehttp 83641 6188838912 "GET /static/js/dashboard.js HTTP/1.1" 200 10561
+INFO 2025-02-16 02:25:26,962 basehttp 83641 6205665280 "GET /static/css/styles.css HTTP/1.1" 200 5467

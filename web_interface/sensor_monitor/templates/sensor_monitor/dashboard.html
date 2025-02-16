@@ -6,6 +6,7 @@
     <title>Arduino Sensor Dashboard</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -23,11 +24,13 @@
                         <h3>Temperature</h3>
                         <div id="temperature-value" class="sensor-value">--</div>
                         <div class="sensor-unit">°C</div>
+                        <canvas id="temperature-chart"></canvas>
                     </div>
                     <div class="sensor-card">
                         <h3>Humidity</h3>
                         <div id="humidity-value" class="sensor-value">--</div>
                         <div class="sensor-unit">%</div>
+                        <canvas id="humidity-chart"></canvas>
                     </div>
                 </div>
             </section>
@@ -53,6 +56,54 @@
                 </div>
             </section>
         </div>
+
+        <!-- Historical Data -->
+        <section class="readings-section">
+            <h2>Historical Data</h2>
+            <div class="history-controls">
+                <select id="time-range">
+                    <option value="1">Last Hour</option>
+                    <option value="24">Last 24 Hours</option>
+                    <option value="168">Last Week</option>
+                </select>
+                <button id="refresh-history">Refresh</button>
+            </div>
+            <div class="history-charts">
+                <div class="chart-container">
+                    <canvas id="history-temperature-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="history-humidity-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Events History -->
+        <section class="readings-section">
+            <h2>Security Events History</h2>
+            <div class="history-controls">
+                <select id="security-time-range">
+                    <option value="1">Last Hour</option>
+                    <option value="24">Last 24 Hours</option>
+                    <option value="168">Last Week</option>
+                </select>
+                <button id="refresh-security">Refresh</button>
+            </div>
+            <div class="security-events">
+                <div class="events-container">
+                    <h3>Motion Events</h3>
+                    <div class="events-list" id="motion-events">
+                        <!-- Motion events will be inserted here -->
+                    </div>
+                </div>
+                <div class="events-container">
+                    <h3>Smoke Events</h3>
+                    <div class="events-list" id="smoke-events">
+                        <!-- Smoke events will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Latest Readings -->
         <section class="readings-section">
