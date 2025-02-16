@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+recursive-include sensor_monitor/static *
+recursive-include sensor_monitor/templates *
+recursive-include sensor_monitor/migrations *
+include requirements.txt
+include .env.example 

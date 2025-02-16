@@ -1,0 +1,18 @@
+Metadata-Version: 2.2
+Name: arduino-sensor-dashboard
+Version: 1.0.0
+Summary: A web dashboard for Arduino sensor monitoring
+Author: Your Name
+Author-email: your.email@example.com
+Keywords: arduino,sensors,dashboard,monitoring
+Requires-Python: >=3.8
+Requires-Dist: Django>=4.2.0
+Requires-Dist: channels>=4.0.0
+Requires-Dist: pyserial>=3.5
+Requires-Dist: python-dotenv>=1.0.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
