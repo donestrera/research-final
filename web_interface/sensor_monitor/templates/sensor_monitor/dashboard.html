@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino Sensor Dashboard</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Arduino Sensor Dashboard</h1>
+            <p class="connection-status">Connection Status: <span id="connection-status">Connecting...</span></p>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Environmental Sensors -->
+            <section class="sensor-section">
+                <h2>Environmental Data</h2>
+                <div class="sensor-cards">
+                    <div class="sensor-card">
+                        <h3>Temperature</h3>
+                        <div class="sensor-value" id="temperature">--</div>
+                        <div class="sensor-unit">°C</div>
+                        <canvas id="temperature-chart"></canvas>
+                    </div>
+                    <div class="sensor-card">
+                        <h3>Humidity</h3>
+                        <div class="sensor-value" id="humidity">--</div>
+                        <div class="sensor-unit">%</div>
+                        <canvas id="humidity-chart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Security Sensors -->
+            <section class="sensor-section">
+                <h2>Security Sensors</h2>
+                <div class="sensor-cards">
+                    <div class="sensor-card" id="motion-card">
+                        <h3>Motion Sensor</h3>
+                        <div class="sensor-indicator">
+                            <div class="indicator-light"></div>
+                            <div class="sensor-status" id="motion-status">No Motion</div>
+                        </div>
+                    </div>
+                    <div class="sensor-card" id="smoke-card">
+                        <h3>Smoke Detector</h3>
+                        <div class="sensor-indicator">
+                            <div class="indicator-light"></div>
+                            <div class="sensor-status" id="smoke-status">No Smoke</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Latest Readings -->
+        <section class="readings-section">
+            <h2>Latest Readings</h2>
+            <div class="readings-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Temperature</th>
+                            <th>Humidity</th>
+                            <th>Motion</th>
+                            <th>Smoke</th>
+                        </tr>
+                    </thead>
+                    <tbody id="readings-body">
+                        <!-- Readings will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html> 
